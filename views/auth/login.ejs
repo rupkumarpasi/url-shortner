@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page</title>
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+</head>
+<body>
+<%- include('../header') %>
+   <div class="main-container">
+    <div class="login-container">
+        <form class="login-form" id="loginForm" method="post" action="/auth/login">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Please enter your details to sign in</p>
+            
+        
+
+            <!-- Email Input -->
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <!-- Password Input -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <button type="button" id="togglePassword" class="toggle-btn">Show</button>
+                </div>
+            </div>
+
+            <!-- Remember & Forgot Password -->
+            <div class="form-actions">
+                <!-- <label class="remember-me"> -->
+                    <!-- <input type="checkbox" id="rememberMe"> Remember me
+                </label> -->
+                <a href="/forgot-password" class="forgot-link">Forgot password?</a>
+            </div>
+
+                <% if(typeof errors !== 'undefined' && errors && errors.length>0){ %>
+                <% errors.forEach((err)=>{  %>
+                   <div class="error-message"><%= err %></div> 
+              <%  }) %>
+                   <%  } %>
+
+                     <% if(typeof success !== 'undefined' && success && success.length>0){ %>
+                <% success.forEach((s)=>{  %>
+                   <div class="success-message"><%= s %></div> 
+              <%  }) %>
+                   <%  } %>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Sign In</button>
+
+            <!-- Signup Redirect -->
+            <p class="signup-text">Don't have an account? <a href="register">Sign up</a></p>
+        </form>
+        <div class="externallink" style="display: flex; align-items: center; flex-direction: column; gap:10px; padding: 5px;">
+        <div><h3>Or Login with: </h3></div> 
+        <div class="external-login-container">
+             <a href="/auth/google"> <i class="fa-brands fa-square-google-plus" style="font-size: 40px; background-color: white; color: black"></i></a>
+         <a href="/auth/github"> <i class="fa-brands fa-github" style="font-size: 40px; background-color: white; color: black"></i></a>
+   
+            </div>
+          
+    </div>
+    
+    </div>
+
+    <script src="/login.js">
+//      const errorMessage = document.getElementById("errorMessage");
+
+// // Check if the innerHTML is empty (ignoring extra whitespace)
+// if (!errorMessage.innerHTML.trim()) {
+//     errorMessage.style.display = "none";
+// } else {
+//     errorMessage.style.display = "block"; // or 'flex' / 'inline-block' depending on your design
+// }
+    </script>
+</body>
+</html>

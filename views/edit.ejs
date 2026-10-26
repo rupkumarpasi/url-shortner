@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    
+    <title>Document</title>
+  </head>
+
+  <body>
+     <%- include('header') %>
+    <div class="container">
+      <h1>URL Shortener</h1>
+      <form action="/edit" method="post">
+        <div>
+            <input type="number" name="id" value="<%= data.id %>" hidden/>
+          <label for="url">Enter URL:</label>
+          <input type="url" name="url" id="url" value="<%= data.url %>" required />
+        </div>
+        <div>
+          <label for="shortCode">Enter shortCode:</label>
+          <input type="text" name="shortCode" id="shortCode" value="<%= data.shortCode %>" required />
+        </div>
+        
+         <% if(errors.length>0){ %>
+                <% errors.forEach((err)=>{  %>
+                   <div class="error-message"><%= err %></div> 
+              <%  }) %>
+                   <%  } %>
+
+        <button type="submit">Shorten</button>
+      </form>
+    </div>
+  </body>
+</html>

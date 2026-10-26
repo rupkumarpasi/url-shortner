@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    
+    <title>Document</title>
+  </head>
+
+  <body>
+     <%- include('../header') %>
+    <div class="container">
+      <h1>Edit Profile Page</h1>
+      <form action="/edit-profile" enctype="multipart/form-data" method="post">
+             <div class="avatar">
+                    <!-- <%= user.avatar %> -->
+                     <img src="/<%= user.avatar%>" id="image"/>
+                </div>
+        <div>
+          <label for="avatar">upload your profile image:</label>
+          <input type="file" name="avatar" id="avatar" accept="image/*" value="<%= user.avatar? user.avatar : null %>" />
+        </div>
+        <div>
+          <label for="username">Enter username:</label>
+          <input type="text" name="username" id="username" value="<%= user.username %>" required />
+        </div>
+        
+         <% if(errors.length>0){ %>
+                <% errors.forEach((err)=>{  %>
+                   <div class="error-message"><%= err %></div> 
+              <%  }) %>
+                   <%  } %>
+
+        <button type="submit">Edit Profile</button>
+      </form>
+    </div>
+    <script>
+let image = document.getElementById("image");
+let avatar = document.getElementById("avatar");
+
+avatar.addEventListener("change",(event)=>{
+
+  let file = event.target.files[0];
+
+  if(file)
+{
+  const objectUrl = URL.createObjectURL(file);
+  image.src=objectUrl;
+}
+ 
+})
+
+    </script>
+  </body>
+</html>

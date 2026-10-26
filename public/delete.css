@@ -1,0 +1,263 @@
+/* ==========================================
+   URL Shortener - Modern Realistic CSS
+   ========================================== */
+
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #eef2ff;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #cbd5e1;
+  --border-focus: #4f46e5;
+  --success-bg: #ecfdf5;
+  --success-text: #065f46;
+  --radius: 10px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   Header & Navigation (Fixes vertical issue)
+   ========================================== */
+ /* ==========================================
+   Navbar Styles (Home/About left, Auth right)
+   ========================================== */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 32px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+}
+
+.navbar ul.navbar-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between; /* Pushes the left div and right div apart */
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Group container divs inside navbar links */
+.navbar-links div {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar a {
+  color: var(--text-muted);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+/* Main Container Card */
+.container {
+  max-width: 640px;
+  margin: 40px auto;
+  background: var(--card-bg);
+  padding: 36px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Authentication Status Banners */
+.container > p {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.925rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.container > p:not(:empty) {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+/* Headings */
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 24px;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 36px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #fafafa;
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid #e2e8f0;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+input[type="url"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+
+input[type="url"]:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  header, nav, .header, .navbar {
+    padding: 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .container {
+    margin: 16px;
+    padding: 20px;
+  }
+  
+  .container ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* Error Message Box */
+.error-message {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    /* display: none; Hidden by default */
+    display: block;
+    border: 1px solid #fca5a5;
+}
+
+/* Fix: Confirmation Box Styling (Removed the dot from your class selector) */
+.confirmation {
+  background-color: #4f46e5 ; /* Overriding your inline black style cleanly  !important */
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width:100%;
+}
+
+.confirmation h1 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Button Layout inside the Warning box */
+.button-section {
+    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Cancel Link Button */
+.button-section a {
+    width:40%;
+  text-decoration: none;
+  border: 2px solid whitesmoke;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.button-section a:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Confirm Action Button */
+.button-section button[type="submit"] {
+    width:40%;
+  background-color: red;
+  color: white;
+  border: none;
+ padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-section button[type="submit"]:hover {
+  background-color: #c53030;
+}

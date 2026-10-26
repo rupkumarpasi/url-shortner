@@ -1,0 +1,40 @@
+{
+  "name": "url",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --env-file=.env --watch app.js",
+    "start": "node --env-file=.env app.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:push": "drizzle-kit push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "argon2": "^0.45.1",
+    "axios": "^1.20.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.7",
+    "drizzle-orm": "^1.0.0-rc.4",
+    "ejs": "^3.1.10",
+    "express": "^5.0.1",
+    "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
+    "mjml": "^5.4.1",
+    "multer": "^2.5.0",
+    "nodemailer": "^10.1.4",
+    "pg": "^8.23.1",
+    "querystring": "^0.2.1",
+    "request-ip": "^3.3.0",
+    "resend": "^6.34.1",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^1.0.0-rc.4"
+  }
+}

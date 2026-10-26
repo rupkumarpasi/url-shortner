@@ -1,0 +1,1 @@
+ALTER TABLE "url_shortner" DROP CONSTRAINT "url_shortner_user_id_users_id_fkey", ADD CONSTRAINT "url_shortner_user_id_users_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE;

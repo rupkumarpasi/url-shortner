@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/delete.css" />
+    
+    <title>Document</title>
+  </head>
+
+  <body>
+     <%- include('header') %>
+    <div class="container">
+      <h1>URL Shortener</h1>
+      <form action="/delete" method="post">
+        <div>
+            <input type="number" name="id" value="<%= data.id %>" hidden/>
+          <label for="url">Enter URL:</label>
+          <input type="url" name="url" id="url" value="<%= data.url %>" disabled />
+        </div>
+        <div>
+          <label for="shortCode">Enter shortCode:</label>
+          <input type="text" name="shortCode" id="shortCode" value="<%= data.shortCode %>" disabled />
+        </div>
+        
+         <% if(errors.length>0){ %>
+                <% errors.forEach((err)=>{  %>
+                   <div class="error-message"><%= err %></div> 
+              <%  }) %>
+                   <%  } %>
+
+                 <div class="confirmation">
+  <h1>Are you sure you want to delete?</h1>
+  <div class="button-section">
+    <a href="/">Cancel</a>
+    <button type="submit">Confirm</button>
+  </div>
+</div>
+       
+      </form>
+    </div>
+  </body>
+</html>

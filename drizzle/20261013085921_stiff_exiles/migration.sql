@@ -1,0 +1,1 @@
+ALTER TABLE "url_shortner" DROP CONSTRAINT "url_shortner_shortCode_key";

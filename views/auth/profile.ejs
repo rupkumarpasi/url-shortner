@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="/profile.css" />
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <!-- Logged In Alert Banner -->
+        <div class="login-alert">
+            <i class="fa-solid fa-circle-check"></i> You are logged in
+        </div>
+
+        <!-- Main Card Component -->
+        <div class="profile-card">
+            
+            <!-- Top Blue Section -->
+            <div class="profile-header">
+                <div class="avatar">
+                    <!-- <%= user.avatar %> -->
+                     <img src="<%= user.avatar%>" />
+                </div>
+                <div class="user-info">
+                    <h2><%= user.username %></h2>
+                    <p><i class="fa-regular fa-envelope"></i> <%= user.email %></p>
+                    <p><i class="fa-regular fa-calendar"></i><%= new Date(user.createdAt).toLocaleDateString() %></p>
+                </div>
+            </div>
+
+            <!-- Stats Bar Section -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number"><%= user.links.length %></span>
+                    <span class="stat-label">LINKS CREATED</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">TOTAL CLICKS</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Today</span>
+                    <span class="stat-label">LAST ACTIVE</span>
+                </div>
+            </div>
+
+            <!-- Email Verification Section -->
+            <div class="verification-section">
+                <div class="verification-status">
+                    <span>Email Verification:</span>
+                    <% if (!user.isEmailValid){ %>
+                    <span class="badge-unverified"><i class="fa-solid fa-circle-exclamation"></i> Not Verified</span>
+                </div>
+                <button class="btn-verify">
+                    <a href="/verify-email"><i class="fa-solid fa-paper-plane"></i> Verify Now</a>
+                </button>
+                <% } else { %>
+                      <span class="badge-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                      <% } %>
+            </div>
+
+        </div>
+
+        <!-- Bottom Action Buttons -->
+        <div class="action-buttons">
+<a href="/edit-profile/<%= user.id %>" class="btn-action"><i class="fa-solid fa-pen"></i> Edit Profile</a>
+<% if(user.hashPassword){ %>
+   <a href="/change-password" class="btn-action"><i class="fa-solid fa-key"></i>change Password</a>
+  <% }else{ %>
+       <a href="/set-password" class="btn-action"><i class="fa-solid fa-key"></i>Set Password</a>
+   <% } %>
+
+   
+ <a href="/auth/logout" class="btn-action"><i class="fa-solid fa-power-off"></i> Logout</a>
+<a href="/" class="btn-action"><i class="fa-solid fa-house"></i>Back TO Home Page</a>
+            
+        </div>
+
+    </div>
+<script>
+
+    
+</script>
+</body>
+</html>
